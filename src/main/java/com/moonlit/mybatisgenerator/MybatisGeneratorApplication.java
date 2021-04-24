@@ -16,15 +16,11 @@ import java.util.Scanner;
 public class MybatisGeneratorApplication {
 
     /**
-     * <p>
      * 读取控制台内容
-     * </p>
      */
     public static String scanner(String tip) {
         Scanner scanner = new Scanner(System.in);
-        StringBuilder help = new StringBuilder();
-        help.append("请输入" + tip + "：");
-        System.out.println(help.toString());
+        System.out.println("请输入" + tip + "：");
         if (scanner.hasNext()) {
             String ipt = scanner.next();
             if (StringUtils.isNotEmpty(ipt)) {
@@ -65,7 +61,8 @@ public class MybatisGeneratorApplication {
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.moonlit.kingserp");
+//        pc.setParent("com.moonlit.kingserp");
+        pc.setParent(scanner("項目包配置"));
         mpg.setPackageInfo(pc);
 
         // 策略配置
