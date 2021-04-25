@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Scanner;
 
 /**
+ * 動態生成數據庫數據代碼
  * @author Joshua
  */
 @SpringBootApplication
@@ -32,13 +33,12 @@ public class MybatisGeneratorApplication {
 
     public static void main(String[] args) {
         AutoGenerator mpg = new AutoGenerator();
-
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         /* 文件生成路徑 */
-        gc.setOutputDir("F://JavaProject/mybatis");
+        gc.setOutputDir(scanner("文件輸出地址(如：F://JavaProject/mybatis)"));
         /* 作者名稱 */
-        gc.setAuthor("Joshua");
+        gc.setAuthor(scanner("作者名稱"));
         gc.setFileOverride(true);
         gc.setActiveRecord(true);
 
