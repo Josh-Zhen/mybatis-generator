@@ -52,16 +52,15 @@ public class MybatisGeneratorApplication {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/kings_erp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT");
+        dsc.setUrl("jdbc:mysql://localhost:3306/"+scanner("數據庫")+"?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUsername("root");
-        dsc.setPassword("qwe123");
+        dsc.setUsername(scanner("數據庫用戶名"));
+        dsc.setPassword(scanner("數據庫密碼"));
         mpg.setDataSource(dsc);
 
         // 包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(scanner("模块名"));
-//        pc.setParent("com.moonlit.kingserp");
         pc.setParent(scanner("項目包配置"));
         mpg.setPackageInfo(pc);
 
