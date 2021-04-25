@@ -36,7 +36,7 @@ public class MybatisGeneratorApplication {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         /* 文件生成路徑 */
-        gc.setOutputDir(scanner("文件輸出地址(如：F://JavaProject/mybatis)"));
+        gc.setOutputDir(scanner("文件輸出位置(如：F://JavaProject/mybatis)"));
         /* 作者名稱 */
         gc.setAuthor(scanner("作者名稱"));
         gc.setFileOverride(true);
