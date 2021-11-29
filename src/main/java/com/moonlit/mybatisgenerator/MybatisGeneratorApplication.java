@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 /**
  * 動態生成數據庫數據代碼
+ *
  * @author Joshua
  */
 @SpringBootApplication
@@ -33,6 +34,10 @@ public class MybatisGeneratorApplication {
 
     public static void main(String[] args) {
         AutoGenerator mpg = new AutoGenerator();
+
+        String url = scanner("請輸入地址：");
+        String port = scanner("請輸入端口：");
+
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         /* 文件生成路徑 */
@@ -52,7 +57,7 @@ public class MybatisGeneratorApplication {
 
         // 数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/"+scanner("數據庫")+"?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT");
+        dsc.setUrl("jdbc:mysql://" + url + ":" + port + "/" + scanner("數據庫") + "?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT");
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
         dsc.setUsername(scanner("數據庫用戶名"));
         dsc.setPassword(scanner("數據庫密碼"));
